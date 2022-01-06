@@ -43,24 +43,16 @@ class App extends React.Component {
 
         if (items[a] && items[a] === items[b] && items[a] === items[c]) {
           this.setState({ winner: 'We Have a Winner!' });
-          // 
-        
+          //
         }
-    }
-    
-    );
-    if (itemArray.every((val, i, arr) => val !== null) && this.state.winner ) {
-      this.setState({ winner: 'Tie!' });
-      console.log('tie');
-  }
-    
+      });
+      if (itemArray.every((val, i, arr) => val !== null) && this.state.winner) {
+        this.setState({ winner: 'Tie!' });
+        console.log('tie');
+      }
     };
 
     const resetPlayGround = () => {
-<<<<<<< Updated upstream
-      
-=======
->>>>>>> Stashed changes
       itemArray.fill(null, 0, 9);
       this.setState({ winner: null });
     };
