@@ -16,12 +16,13 @@ class App extends React.Component {
   render() {
     const changeItem = (itemIndex) => {
       itemArray[itemIndex] = this.state.activePlayer;
+      // Calling checkWinner Function.
+      checkWinner(itemArray);
+
       // toggle activePlayer
       this.state.activePlayer === 'cross'
         ? this.setState({ activePlayer: 'circle' })
         : this.setState({ activePlayer: 'cross' });
-      // Calling checkWinner Function.
-      checkWinner(itemArray);
     };
 
     const checkWinner = (items) => {
@@ -36,21 +37,33 @@ class App extends React.Component {
         [0, 4, 8],
         [2, 4, 6],
       ];
+
       lines.forEach((i) => {
         const [a, b, c] = i;
 
         if (items[a] && items[a] === items[b] && items[a] === items[c]) {
-          this.setState({ winner: items[a] });
+          this.setState({ winner: 'We Have a Winner!' });
+          // 
+        
         }
-        return '';
-      });
+    }
+    
+    );
+    if (itemArray.every((val, i, arr) => val !== null) && this.state.winner ) {
+      this.setState({ winner: 'Tie!' });
+      console.log('tie');
+  }
+    
     };
 
     const resetPlayGround = () => {
+<<<<<<< Updated upstream
       
+=======
+>>>>>>> Stashed changes
       itemArray.fill(null, 0, 9);
       this.setState({ winner: null });
-    }
+    };
 
     return (
       <div className="container">
@@ -95,7 +108,6 @@ class App extends React.Component {
                       borderRadius: '50%',
                       border: '4px solid currentcolor',
                       height: '35px',
-                      
                     }}
                   ></div>
                 </div>
@@ -103,7 +115,7 @@ class App extends React.Component {
             </>
           ) : (
             <>
-              <p>We Have a Winner!</p>
+              <p>{this.state.winner}</p>
               <p style={{ textAlign: 'center', marginTop: '30px' }}>
                 <button
                   onClick={() => resetPlayGround()}
