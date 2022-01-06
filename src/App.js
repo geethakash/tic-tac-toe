@@ -48,7 +48,7 @@ class App extends React.Component {
 
     const resetPlayGround = () => {
       
-      itemArray.fill(null, 0, 8);
+      itemArray.fill(null, 0, 9);
       this.setState({ winner: null });
     }
 
