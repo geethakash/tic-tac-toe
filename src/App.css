@@ -85,6 +85,7 @@ section {
 .grid-item:hover {
   /* background-color: hsl(200, 3%, 21%); */
   background-color: #7e7e8a;
+  color: black;
 }
 
 .svg-done {
